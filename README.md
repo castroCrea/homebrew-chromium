@@ -3,15 +3,15 @@
 ## Tap
 
 ```bash
-brew tap extap/chromium
+brew tap castroCrea/chromium
 ```
 
 
 ## Install
 
 ```bash
-brew install extap/chromium/depot_tools
+brew install castroCrea/chromium/depot_tools
 # or
-brew tap extap/chromium
+brew tap castroCrea/chromium
 brew install depot_tools
 ```
