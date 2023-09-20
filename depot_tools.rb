@@ -31,10 +31,10 @@ class DepotTools < Formula
     bin.mkpath
 
     tools.each do |tool|
-      (bin/tool).write <<-EOS.undent
+      (bin/tool).write <<-EOS.indent
         #!/bin/bash
         TOOL=#{prefix}/#{tool}
-        export DEPOT_TOOLS_UPDATE=0
+        export DEPOT_TOOLS_UPDATE=1
         export PATH="$PATH:#{prefix}"
         exec "$TOOL" "$@"
       EOS
@@ -42,7 +42,7 @@ class DepotTools < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<-EOS.indent
     Installed tools:
     #{tools.join(", ")}
     EOS
