@@ -11,13 +11,13 @@ class DepotTools < Formula
   end
 
   def caveats
-    <<-EOS.indent
+    <<~EOS
     To use depot_tools, add the following line to your shell profile (e.g., ~/.bashrc or ~/.zshrc):
 
-    export PATH="#{prefix}:$PATH"
+      export PATH="#{opt_prefix}:$PATH"
 
     Installed tools:
-    #{Dir["#{prefix}/*"].map { |f| File.basename(f) }.join(", ")}
+    #{Dir["#{opt_prefix}/*"].map { |f| File.basename(f) }.join(", ")}
     EOS
   end
 
