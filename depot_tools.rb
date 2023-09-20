@@ -11,13 +11,12 @@ class DepotTools < Formula
   end
 
   def caveats
-    <<~EOS
-    To use depot_tools, add the following line to your shell profile (e.g., ~/.bashrc or ~/.zshrc):
-
-      export PATH="#{opt_prefix}:$PATH"
-
-    Installed tools:
-    #{Dir["#{opt_prefix}/*"].map { |f| File.basename(f) }.join(", ")}
+    (bin/tool).write <<-EOS.indent
+      #!/bin/bash
+      TOOL=#{prefix}/#{tool}
+      export DEPOT_TOOLS_UPDATE=1
+      export PATH="$PATH:#{prefix}"
+      exec "#{Formula["python"].bin}/python3" "$TOOL" "$@"
     EOS
   end
 
